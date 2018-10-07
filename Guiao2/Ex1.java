@@ -33,11 +33,9 @@ class Ex1 extends Thread
 
 	public static void main(String args[]){
 		final int N = 10;
-		Counter c;
-		Incrementer worker;
+		Counter c = new Counter();
+		Incrementer worker = new Incrementer(c);
 		Thread t[] = new Thread[N];
-		c = new Counter();
-		worker = new Incrementer(c);
 		
 		try{
 			for(int i = 0; i < N; i++){
