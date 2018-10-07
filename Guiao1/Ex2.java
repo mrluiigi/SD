@@ -14,7 +14,7 @@ class Counter
 class Incrementer implements Runnable
 {
 	Counter c;
-	Incrementer(Counter cshared){
+	public Incrementer(Counter cshared){
 		c = cshared;
 	}
 
@@ -33,12 +33,9 @@ class Ex2 extends Thread
 	public static void main(String args[]){
 		try{
 			final int N = 10;
-			Counter c;
-			Incrementer worker;
+			Counter c = new Counter();
+			Incrementer worker = new Incrementer(c);
 			Thread t[] = new Thread[N];
-
-			c = new Counter();
-			worker = new Incrementer(c);
 
 			for(int i = 0; i < N; i++){
 				t[i] = new Thread(worker);
@@ -52,8 +49,6 @@ class Ex2 extends Thread
 				t[i].join();
 			}
 			System.out.println(c.get());
-
-
 
 		}catch(InterruptedException e) {}
 	}
