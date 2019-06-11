@@ -1,2 +1,3 @@
 # SD
-Exercicios de Sistemas Distribuidos
+
+Exercicios das fichas da cadeira de Sistemas Distribuidos
